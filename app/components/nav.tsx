@@ -2,11 +2,20 @@ import Link from 'next/link'
 
 const navItems = {
   '/': {
-    name: 'Home',
+    name: 'Início',
+  },
+  '/sobre': {
+    name: 'Sobre mim',
+  },
+  '/experiencia': {
+    name: 'Experiências',
+  },
+  '/projetos': {
+    name: 'Projetos',
   },
   '/blog': {
     name: 'Blog',
-  }
+  },
 }
 
 export function Navbar() {
@@ -15,9 +24,12 @@ export function Navbar() {
       <div className="lg:sticky lg:top-20">
         <nav
           className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
-          id="nav"
-        >
-          <div className="flex flex-row space-x-0 pr-10">
+          id="nav">
+          
+          <div className="flex flex-row space-x-0 pr-12">
+              <div className="flex">
+                <p className="text-primary font-sans font-bold">Kellen Xavier</p>
+              </div>
             {Object.entries(navItems).map(([path, { name }]) => {
               return (
                 <Link

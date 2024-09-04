@@ -2,4 +2,4 @@
 
 ## Link do projeto
 
-https://portfolio-blog-starter.vercel.app
+[Segue o site](https://portfolio-blog-starter.vercel.app)
