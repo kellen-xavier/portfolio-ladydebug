@@ -1,0 +1,52 @@
+.experienceContainer {
+    display: flex;
+    flex-direction: column; 
+  }
+  
+  .experienceList {
+    display: none; 
+  }
+  
+  .experiencesContent {
+    flex: 1;
+  }
+  
+  .experienceItem {
+    margin-bottom: 2rem; 
+    border-bottom: 1px solid #ccc; 
+    padding-bottom: 1rem;
+    display: flex; 
+  }
+  
+  .companyAndDetails {
+    display: flex;
+    flex-direction: column; 
+    margin-right: 2rem; 
+  }
+  
+  .companyAndPeriod {
+    display: flex;
+    justify-content: space-between; 
+    align-items: baseline; 
+    margin-bottom: 0.5rem; 
+  }
+  
+  .companyName {
+    font-weight: bold;
+    font-size: 1.5rem; 
+  }
+  
+  .jobTitle {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .period {
+    font-style: italic;
+    color: #888; 
+  }
+  
+  .description {
+    line-height: 1.5;
+    flex: 1;
+  }

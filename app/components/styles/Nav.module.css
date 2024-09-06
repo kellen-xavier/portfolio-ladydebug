@@ -1,0 +1,25 @@
+/* Nav.module.css */
+
+.navContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+  
+  .navLinks {
+    display: flex;
+  }
+  
+  .navLink {
+    margin-left: 1.5rem;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .navLink:hover {
+    color: #cca5e2;
+    text-decoration: underline;
+  }
+  
+  .brandName {
+    font-weight: bold;
+  }
