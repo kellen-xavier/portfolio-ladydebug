@@ -1,4 +1,5 @@
-import { BlogPosts } from 'app/components/posts'
+import { BlogPosts } from 'app/components/posts';
+import styles from 'app/components/styles/Page.module.css'
 
 export const metadata = {
   title: 'Blog',
@@ -8,7 +9,10 @@ export const metadata = {
 export default function Page() {
   return (
     <section>
-      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">My Blog</h1>
+      <h1 className={styles.nomePrincipal}>Meu Blog</h1>
+      <p className={styles.nomeSecundario} >
+        Em desenvolvimento....
+      </p>
       <BlogPosts />
     </section>
   )

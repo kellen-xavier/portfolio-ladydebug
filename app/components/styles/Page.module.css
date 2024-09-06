@@ -1,3 +1,9 @@
+.pageContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .linkedinButton {
     background: #BF91F9;
     color: #0B0B0B;
@@ -13,4 +19,26 @@
   .linkedinButton:hover {
     background-color: #cca5e2;
     opacity: 1;
+}
+
+.baixarCV {
+  color: #BF91F9;
+}
+
+.nomePrincipal {
+  font-family: Preahvihear;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 86.72px;
+  text-align: left;
+  color: #BF91F9;
+}
+
+.nomeSecundario {
+  font-family: Preahvihear;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 57.81px;
+  text-align: left;
+  color: #BF91F9;
 }
