@@ -36,8 +36,8 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v27
+      - name: Vercel Action
+        uses: amondnet/vercel-action@v25.2.0
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Defina seu token da Vercel como um segredo no repositório
           github-token: ${{ secrets.GITHUB_TOKEN }}
