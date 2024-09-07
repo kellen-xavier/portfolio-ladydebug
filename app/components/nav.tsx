@@ -5,15 +5,20 @@ const navItems = {
   '/': {
     name: 'Início',
   },
-  '/sobre': {
+  '#Sobre': {
     name: 'Sobre mim',
   },
-  '/experiencia': {
+  '#Experiencia': {
     name: 'Experiências',
   },
   '/projetos': {
     name: 'Projetos',
   },
+
+  '#servicos': {
+    name: 'Serviços',
+  },
+
   '/blog': {
     name: 'Blog',
   },

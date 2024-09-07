@@ -5,13 +5,6 @@
   color: #fefefe;
 }
 
-section {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-
 :root {
   --sh-class: #2d5e9d;
   --sh-identifier: #354150;
