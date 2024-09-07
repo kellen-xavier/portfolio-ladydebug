@@ -8,12 +8,14 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <section>
-      <h1 className={styles.nomePrincipal}>Meu Blog</h1>
-      <p className={styles.nomeSecundario} >
-        Em desenvolvimento....
-      </p>
-      <BlogPosts />
+    <section className={styles.pageContainer}>
+      <div className={styles.body}>
+        <h1 className={styles.nomePrincipal}>Meu Blog</h1>
+        <p className={styles.nomeSecundario} >
+          Em desenvolvimento....
+        </p>
+        <BlogPosts />
+      </div>
     </section>
   )
 }

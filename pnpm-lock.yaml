@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@next/font':
+        specifier: ^14.2.8
+        version: 14.2.8(next@14.2.0-canary.62(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       '@tailwindcss/postcss':
         specifier: 4.0.0-alpha.13
         version: 4.0.0-alpha.13(postcss@8.4.35)
@@ -119,6 +122,11 @@ packages:
 
   '@next/env@14.2.0-canary.62':
     resolution: {integrity: sha512-K5lmKK/TalagQELw3W0hKDXmNGGXY3Zxw3yH27y9DOT7evhiJvK2Ywq5uN4lEjYHkeW+QbyC/OjUIcK3RUSHbQ==}
+
+  '@next/font@14.2.8':
+    resolution: {integrity: sha512-yQbLs/Sc9PXXsJv3gj5w/2Ubesge+m1VJNH5io8KcxYJfjbJnAywtMvZRUbWX2hyeB/o7Xu1PJKAqbjaBrzDTQ==}
+    peerDependencies:
+      next: '*'
 
   '@next/swc-darwin-arm64@14.2.0-canary.62':
     resolution: {integrity: sha512-Cm53nqD/u7I1wo4xeULBZ6YjThK7Mk+ThaoYJu69varPPHsahpzbf/rM3ZkW3UB5Cgl5I7N3mNIb+Z9U/JZemw==}
@@ -1361,6 +1369,10 @@ snapshots:
       react: 18.2.0
 
   '@next/env@14.2.0-canary.62': {}
+
+  '@next/font@14.2.8(next@14.2.0-canary.62(react-dom@18.2.0(react@18.2.0))(react@18.2.0))':
+    dependencies:
+      next: 14.2.0-canary.62(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
 
   '@next/swc-darwin-arm64@14.2.0-canary.62':
     optional: true

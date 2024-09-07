@@ -1,3 +1,27 @@
+.body {
+  font-family: 'Geist Sans', sans-serif;
+  font-family: 'Geist Mono', monospace;
+  width: 100%;
+}
+
+.main {
+  position: relative;
+}
+
+.footer {
+  justify-content: space-around;
+  width: 100%;
+  display: flex;
+}
+
+.sobreIntro {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29.05px;
+  text-align: left;
+}
+
 .pageContainer {
   width: 100%;
   max-width: 1200px;
