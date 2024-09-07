@@ -36,18 +36,15 @@ jobs:
         run: pnpm run lint
 
 
+      - name: Set Git user
+        uses: fregante/setup-git-user@v1
+        with:
+          email: ${{ secrets.GIT_EMAIL }} 
+          name: ${{ secrets.GIT_NAME }}   
+
       - name: Merge into develop (if lint passes)
         if: github.ref != 'refs/heads/main' && github.event_name == 'push'
         run: |
-          git config --global user.email "actions@github.com" # Configuração padrão para segurança
-          git config --global user.name "GitHub Actions"
-      
-          - name: Set Git user
-            uses: fregante/setup-git-user@v1
-            with:
-              email: ${{ secrets.GIT_EMAIL }} 
-              name: ${{ secrets.GIT_NAME }}   
-      
           git checkout develop 
           git merge ${{ github.ref }} --no-ff -m "Merge ${{ github.ref }} into develop"
           git push
