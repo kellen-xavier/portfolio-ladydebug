@@ -3,21 +3,28 @@ name: Lint and Merge
 on:
   pull_request:
     branches:
-      - develop
+      - develop 
+
   push:
     branches:
-      - develop
+      - develop 
 
 jobs:
   lint_and_merge:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04 
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Setup Node.js (versão 20.x)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+          cache: 'pnpm'
+
       - name: Install pnpm
-        uses: pnpm/action-setup@v4.0.0
+        uses: pnpm/action-setup@v2.2.4
         with:
           version: 7.20.0
 
