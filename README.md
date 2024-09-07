@@ -1,9 +1,10 @@
-# Meu Portfolio!
+# Meu Portfolio
 
 Este é o meu portfólio pessoal, desenvolvido com Next.js, onde apresento minhas habilidades, experiências profissionais e projetos.
 
 ## Link do projeto
-[Segue aqui o link :) ](https://portfolio-ladydebug.vercel.app/)
+
+[Segue aqui o link :)](https://portfolio-ladydebug.vercel.app/)
 
 ![alt text](image.png)
 

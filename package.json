@@ -3,7 +3,15 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "test": "jest",
+    "format:check": "prettier --check .",
+    "test:watch": "jest --watch",
+    "format": "prettier --write .",
+    "deploy": "vercel --prod",
+    "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
     "@next/font": "^14.2.8",
@@ -24,10 +32,13 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
+    "@next/eslint-plugin-next": "^14.2.8",
     "@types/eslint__js": "^8.42.3",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/parser": "^8.3.0",
-    "eslint": "^9.9.1",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "14.2.8",
+    "eslint-plugin-react": "^7.35.2",
     "typescript": "5.3.3",
     "typescript-eslint": "^8.3.0"
   }
