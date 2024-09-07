@@ -1,0 +1,44 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Merge develop into main
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git checkout main
+          git merge develop --no-ff -m "Merge develop into main"
+          git push
+
+      - name: Create tag
+        run: |
+          VERSION=$(date +'%Y.%m.%d-%H%M%S')
+          git tag -a $VERSION -m "Deployment $VERSION"
+          git push --tags
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v27
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Defina seu token da Vercel como um segredo no repositório
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-args: '--prod'
