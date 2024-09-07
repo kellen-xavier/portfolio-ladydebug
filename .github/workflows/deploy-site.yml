@@ -12,6 +12,8 @@ on:
 jobs:
   cache-and-install:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout
@@ -36,7 +38,7 @@ jobs:
         run: pnpm run lint
 
       - name: Merge into develop (if lint passes)
-        if: github.ref != 'refs/heads/main' && github.event_name == 'push' # Executa apenas em pushes que não sejam na main
+        if: github.ref != 'refs/heads/main' && github.event_name == 'push'
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
