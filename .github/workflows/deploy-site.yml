@@ -10,29 +10,27 @@ on:
       - develop 
 
 jobs:
-  lint_and_merge:
-    runs-on: ubuntu-22.04 
+  cache-and-install:
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js (versão 20.x)
-        uses: actions/setup-node@v3
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
         with:
-          node-version: 20.x
+          version: 9
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
           cache: 'pnpm'
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.2.4
-        with:
-          version: 7.20.0
-
-      - name: Add pnpm to PATH
-        run: echo "$HOME/.pnpm/bin" >> $GITHUB_PATH # Adiciona o pnpm ao PATH
-
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Lint
         run: pnpm run lint
