@@ -29,11 +29,11 @@ export default function Footer() {
             href="https://github.com/kellen-xavier/portfolio-ladydebug"
           >
             <ArrowIcon />
-            <p className="ml-2 h-7">Github do projeto</p>
+            <p className={styles.footerDescribe}>Github do projeto</p>
           </a>
         </li>
       </ul>
-      <p className="mt-8 text-neutral-600 dark:text-neutral-300">
+      <p className={styles.footerDescribe}>
         © {new Date().getFullYear()} Desenvolvido por: Kellen Xavier
       </p>
     </footer>
