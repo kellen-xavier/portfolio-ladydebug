@@ -1,4 +1,3 @@
-// app/components/experiences.tsx
 import styles from './styles/Experience.module.css';
 
 interface ExperienceProps {
