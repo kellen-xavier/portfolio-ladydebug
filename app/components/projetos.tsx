@@ -29,7 +29,7 @@ export function Projects({ projects }: ProjectsProps) {
     <div className={styles.projectsContainer}>
       {projects.map((project) => (
         <div key={project.name} className={styles.projectCard}>
-          <img src={project.image} alt={project.name} className={styles.projectImage} />
+          <image className={styles.projectImage}>Like</image>
           <h3 className={styles.projectName}>{project.name}</h3>
           <p className={styles.projectDescription}>{project.description}</p>
           <div className={styles.technologies}>
