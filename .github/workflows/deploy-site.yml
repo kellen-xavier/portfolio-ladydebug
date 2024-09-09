@@ -1,0 +1,50 @@
+name: Lint and Merge
+
+on:
+  pull_request:
+    branches:
+      - develop  
+
+  push:
+    branches:
+      - develop 
+
+jobs:
+  cache-and-install:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Lint
+        run: pnpm run lint
+
+
+      - name: Set Git user
+        uses: fregante/setup-git-user@v1
+        with:
+          email: ${{ secrets.GIT_EMAIL }} 
+          name: ${{ secrets.GIT_NAME }}   
+
+      - name: Merge into develop (if lint passes)
+        if: github.ref != 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          git checkout develop 
+          git merge ${{ github.ref }} --no-ff -m "Merge ${{ github.ref }} into develop"
+          git push
