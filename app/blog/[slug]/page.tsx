@@ -1,8 +1,11 @@
 import { notFound } from 'next/navigation';
-import { CustomMDX } from 'app/components/mdx';
 import { formatDate, getBlogPosts } from 'app/blog/utils';
 import { baseUrl } from 'app/sitemap';
 import styles from 'app/components/styles/Content.module.css';
+import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
+import { remark } from 'remark';
+import html from 'remark-html';
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -51,11 +54,28 @@ export function generateMetadata({ params }) {
 }
 
 export default async function Blog({ params }) {
-  await params; // Aguarda a resolução da promise 'params'
   const post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
+  }
+
+  // Processar o conteúdo dependendo do tipo de arquivo
+  let content;
+  if (post.content.endsWith('.mdx')) {
+    const mdxSource = await serialize(post.content, {
+      // Opções para plugins, componentes, etc.
+    });
+    content = <MDXRemote {...mdxSource} />;
+  } else if (post.content.endsWith('.md')) {
+    const processedContent = await remark()
+      .use(html)
+      .process(post.content);
+    const contentHtml = processedContent.toString();
+    content = <div dangerouslySetInnerHTML={{ __html: contentHtml }} />;
+  } else {
+    // Lidar com outros tipos de arquivo ou lançar um erro
+    throw new Error(`Tipo de arquivo não suportado: ${post.content}`);
   }
 
   return (
@@ -91,7 +111,8 @@ export default async function Blog({ params }) {
         </p>
       </div>
       <article className={styles.content}>
-        <CustomMDX source={post.content} />
+        {/* Renderizar o conteúdo processado */}
+        {content}
       </article>
     </section>
   );
