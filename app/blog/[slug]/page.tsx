@@ -1,20 +1,24 @@
-import { notFound } from 'next/navigation'
-import { CustomMDX } from 'app/components/mdx'
-import { formatDate, getBlogPosts } from 'app/blog/utils'
-import { baseUrl } from 'app/sitemap'
+import { notFound } from 'next/navigation';
+import { formatDate, getBlogPosts } from 'app/blog/utils';
+import { baseUrl } from 'app/sitemap';
+import styles from 'app/components/styles/Content.module.css';
+import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
+import { remark } from 'remark';
+import html from 'remark-html';
 
 export async function generateStaticParams() {
-  const posts = getBlogPosts()
+  const posts = getBlogPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
-  }))
+  }));
 }
 
 export function generateMetadata({ params }) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug)
+  const post = getBlogPosts().find((post) => post.slug === params.slug);
   if (!post) {
-    return
+    return;
   }
 
   const {
@@ -22,11 +26,8 @@ export function generateMetadata({ params }) {
     publishedAt: publishedTime,
     summary: description,
     image,
-  } = post.metadata
-  const ogImage = image  
-
-    ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`
+  } = post.metadata;
+  const ogImage = image ? image : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -49,22 +50,38 @@ export function generateMetadata({ params }) {
       description,
       images: [ogImage],
     },
-  }
+  };
 }
 
-// Componente Blog
-export default function Blog({ params }) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug)
+export default async function Blog({ params }) {
+  const post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
-    notFound()
+    notFound();
+  }
+
+  let content;
+
+  try {
+    // Se `post.content` já contém o conteúdo Markdown ou MDX
+    if (post.metadata.format === 'mdx') {
+      // Processa o conteúdo MDX
+      const mdxSource = await serialize(post.content);
+      content = <MDXRemote {...mdxSource} />;
+    } else {
+      // Processa o conteúdo Markdown
+      const processedContent = await remark().use(html).process(post.content);
+      const contentHtml = processedContent.toString();
+      content = <div dangerouslySetInnerHTML={{ __html: contentHtml }} />;
+    }
+  } catch (error) {
+    throw new Error(`Erro ao processar o conteúdo: ${error.message}`);
   }
 
   return (
-    <section>
+    <section className={styles.container}>
       <script
-        type="application/ld+json"  
-
+        type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -74,8 +91,7 @@ export default function Blog({ params }) {
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
-            image: post.metadata.image  
-
+            image: post.metadata.image
               ? `${baseUrl}${post.metadata.image}`
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
             url: `${baseUrl}/blog/${post.slug}`,
@@ -86,19 +102,14 @@ export default function Blog({ params }) {
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
-        {post.metadata.title}
-      </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">  
-
-          {formatDate(post.metadata.publishedAt)}
-        </p>
+      <h1 className={styles.title}>{post.metadata.title}</h1>
+      <div className={styles.dateContainer}>
+        <p className={styles.date}>{formatDate(post.metadata.publishedAt)}</p>
       </div>
-      <article className="prose">  
-
-        <CustomMDX source={post.content} />
+      <article className={styles.content}>
+        {/* Renderiza o conteúdo processado */}
+        {content}
       </article>
     </section>
-  )
+  );
 }

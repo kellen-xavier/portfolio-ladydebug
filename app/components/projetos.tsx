@@ -24,7 +24,7 @@ export const projectsData = [
   },
 ];
 
-export function Projects({ projects }: ProjectsProps) {
+export function Projects({ projects }: Readonly<ProjectsProps>) {
   return (
     <div className={styles.projectsContainer}>
       {projects.map((project) => (
