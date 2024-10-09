@@ -1,8 +1,7 @@
 import { BlogPosts } from 'app/components/posts'
 import Link from 'next/link'
 import styles from './components/styles/Page.module.css'
-import { Experience } from './components/experiences'; 
-import { experiencesData } from './components/experiences';
+import { Experience , experiencesData } from './components/experiences'; 
 import { Projects, projectsData } from './components/projetos';
 
 export default function Page() {

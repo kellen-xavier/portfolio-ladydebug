@@ -60,22 +60,22 @@ export default async function Blog({ params }) {
     notFound();
   }
 
-  // Processar o conteúdo dependendo do tipo de arquivo
   let content;
-  if (post.content.endsWith('.mdx')) {
-    const mdxSource = await serialize(post.content, {
-      // Opções para plugins, componentes, etc.
-    });
-    content = <MDXRemote {...mdxSource} />;
-  } else if (post.content.endsWith('.md')) {
-    const processedContent = await remark()
-      .use(html)
-      .process(post.content);
-    const contentHtml = processedContent.toString();
-    content = <div dangerouslySetInnerHTML={{ __html: contentHtml }} />;
-  } else {
-    // Lidar com outros tipos de arquivo ou lançar um erro
-    throw new Error(`Tipo de arquivo não suportado: ${post.content}`);
+
+  try {
+    // Se `post.content` já contém o conteúdo Markdown ou MDX
+    if (post.metadata.format === 'mdx') {
+      // Processa o conteúdo MDX
+      const mdxSource = await serialize(post.content);
+      content = <MDXRemote {...mdxSource} />;
+    } else {
+      // Processa o conteúdo Markdown
+      const processedContent = await remark().use(html).process(post.content);
+      const contentHtml = processedContent.toString();
+      content = <div dangerouslySetInnerHTML={{ __html: contentHtml }} />;
+    }
+  } catch (error) {
+    throw new Error(`Erro ao processar o conteúdo: ${error.message}`);
   }
 
   return (
@@ -102,16 +102,12 @@ export default async function Blog({ params }) {
           }),
         }}
       />
-      <h1 className={styles.title}>
-        {post.metadata.title}
-      </h1>
+      <h1 className={styles.title}>{post.metadata.title}</h1>
       <div className={styles.dateContainer}>
-        <p className={styles.date}>
-          {formatDate(post.metadata.publishedAt)}
-        </p>
+        <p className={styles.date}>{formatDate(post.metadata.publishedAt)}</p>
       </div>
       <article className={styles.content}>
-        {/* Renderizar o conteúdo processado */}
+        {/* Renderiza o conteúdo processado */}
         {content}
       </article>
     </section>
