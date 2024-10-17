@@ -84,7 +84,7 @@ export default async function Blog({ params }) {
         </p>
       </div>
       <article className={styles.content}>
-        <CustomMDX source={post.content} />
+        <CustomMDX source={post.content} className={styles.prose} />
       </article>
     </section>
   );
