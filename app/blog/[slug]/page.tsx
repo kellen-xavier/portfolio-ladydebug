@@ -9,7 +9,6 @@ import html from 'remark-html';
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
-
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -38,11 +37,7 @@ export function generateMetadata({ params }) {
       type: 'article',
       publishedTime,
       url: `${baseUrl}/blog/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
+      images: [{ url: ogImage }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -54,6 +49,10 @@ export function generateMetadata({ params }) {
 }
 
 export default async function Blog({ params }) {
+<<<<<<< HEAD
+=======
+  await params;
+>>>>>>> main
   const post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
@@ -107,8 +106,12 @@ export default async function Blog({ params }) {
         <p className={styles.date}>{formatDate(post.metadata.publishedAt)}</p>
       </div>
       <article className={styles.content}>
+<<<<<<< HEAD
         {/* Renderiza o conteúdo processado */}
         {content}
+=======
+        <CustomMDX source={post.content} className={styles.prose} />
+>>>>>>> main
       </article>
     </section>
   );

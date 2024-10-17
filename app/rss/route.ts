@@ -3,7 +3,7 @@ import { getBlogPosts } from 'app/blog/utils'
 
 export async function GET() {
 
-  const itemsXml = (await getBlogPosts())
+  const itemsXml = getBlogPosts()
     .sort((a, b) => {
       if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
         return -1

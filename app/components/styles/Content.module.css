@@ -1,32 +1,45 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 650px;
-    margin: 2rem auto;
-    padding: 1rem;
-  }
-  
-  .title {
-    font-size: 2rem;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  .dateContainer {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-  
-  .date {
-    font-size: 0.875rem;
-    color: #71717a;
-  }
-  
-  .content {
-    text-align: center;
-    line-height: 1.6; 
-  }
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  background-color: #0B0B0B;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.dateContainer {
+  margin-bottom: 2rem;
+}
+
+.date {
+  color: #b3b3b3;
+  font-size: 0.9rem;
+}
+
+.content {
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.prose {
+  margin-top: 3rem;
+}
+
+.prose h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem; 
+}
+
+.prose p {
+  margin-bottom: 2rem;
+}
+
+.pre p {
+  margin: 2rem;
+}
