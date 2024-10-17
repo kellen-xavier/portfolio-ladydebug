@@ -49,10 +49,6 @@ export function generateMetadata({ params }) {
 }
 
 export default async function Blog({ params }) {
-<<<<<<< HEAD
-=======
-  await params;
->>>>>>> main
   const post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
