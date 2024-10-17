@@ -1,10 +1,8 @@
 import { notFound } from 'next/navigation';
+import { CustomMDX } from 'app/components/mdx';
 import { formatDate, getBlogPosts } from 'app/blog/utils';
 import { baseUrl } from 'app/sitemap';
 import styles from 'app/components/styles/Content.module.css';
-import { MDXRemote } from 'next-mdx-remote';
-import { serialize } from 'next-mdx-remote/serialize';
-import { CustomMDX } from 'app/components/mdx';
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -48,28 +46,11 @@ export function generateMetadata({ params }) {
 }
 
 export default async function Blog({ params }) {
+  await params;
   const post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
-  }
-
-  let content;
-
-  try {
-    // Se `post.content` já contém o conteúdo Markdown ou MDX
-    if (post.metadata.format === 'mdx') {
-      // Processa o conteúdo MDX
-      const mdxSource = await serialize(post.content);
-      content = <MDXRemote {...mdxSource} />;
-    } else {
-      // Processa o conteúdo Markdown
-      const processedContent = await remark().use(html).process(post.content);
-      const contentHtml = processedContent.toString();
-      content = <div dangerouslySetInnerHTML={{ __html: contentHtml }} />;
-    }
-  } catch (error) {
-    throw new Error(`Erro ao processar o conteúdo: ${error.message}`);
   }
 
   return (
@@ -98,12 +79,12 @@ export default async function Blog({ params }) {
       />
       <h1 className={styles.title}>{post.metadata.title}</h1>
       <div className={styles.dateContainer}>
-        <p className={styles.date}>{formatDate(post.metadata.publishedAt)}</p>
+        <p className={styles.date}>
+          {formatDate(post.metadata.publishedAt)}
+        </p>
       </div>
       <article className={styles.content}>
-        {/* Renderiza o conteúdo processado */}
-        {content}
-        <CustomMDX source={post.content} className={styles.prose} />
+        <CustomMDX source={post.content} />
       </article>
     </section>
   );
