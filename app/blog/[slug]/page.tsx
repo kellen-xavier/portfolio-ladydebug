@@ -6,7 +6,6 @@ import styles from 'app/components/styles/Content.module.css';
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
-
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -35,11 +34,7 @@ export function generateMetadata({ params }) {
       type: 'article',
       publishedTime,
       url: `${baseUrl}/blog/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
+      images: [{ url: ogImage }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -51,7 +46,7 @@ export function generateMetadata({ params }) {
 }
 
 export default async function Blog({ params }) {
-  await params; // Aguarda a resolução da promise 'params'
+  await params;
   const post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
@@ -82,16 +77,14 @@ export default async function Blog({ params }) {
           }),
         }}
       />
-      <h1 className={styles.title}>
-        {post.metadata.title}
-      </h1>
+      <h1 className={styles.title}>{post.metadata.title}</h1>
       <div className={styles.dateContainer}>
         <p className={styles.date}>
           {formatDate(post.metadata.publishedAt)}
         </p>
       </div>
       <article className={styles.content}>
-        <CustomMDX source={post.content} />
+        <CustomMDX source={post.content} className={styles.prose} />
       </article>
     </section>
   );
