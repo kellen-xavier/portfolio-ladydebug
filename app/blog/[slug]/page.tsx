@@ -4,8 +4,7 @@ import { baseUrl } from 'app/sitemap';
 import styles from 'app/components/styles/Content.module.css';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
-import { remark } from 'remark';
-import html from 'remark-html';
+import { CustomMDX } from 'app/components/mdx';
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -102,12 +101,9 @@ export default async function Blog({ params }) {
         <p className={styles.date}>{formatDate(post.metadata.publishedAt)}</p>
       </div>
       <article className={styles.content}>
-<<<<<<< HEAD
         {/* Renderiza o conteúdo processado */}
         {content}
-=======
         <CustomMDX source={post.content} className={styles.prose} />
->>>>>>> main
       </article>
     </section>
   );
