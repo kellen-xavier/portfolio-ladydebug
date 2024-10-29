@@ -1,8 +1,6 @@
-import { BlogPosts } from 'app/components/posts'
 import Link from 'next/link'
 import styles from './components/styles/Page.module.css'
-import { Experience } from './components/experiences'; 
-import { experiencesData } from './components/experiences';
+import { Experience , experiencesData } from './components/experiences'; 
 import { Projects, projectsData } from './components/projetos';
 
 export default function Page() {
@@ -72,11 +70,6 @@ export default function Page() {
         target="_blank">
           <h1 className={styles.nomeSecundario}>Serviços</h1>
         </Link>
-      </div>
-
-      <div className="my-40">
-        <h1 className={styles.nomeSecundario}>Blog</h1>
-        <BlogPosts />
       </div>
     </section>
   )
