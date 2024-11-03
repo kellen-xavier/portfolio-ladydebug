@@ -1,52 +1,59 @@
 .experienceContainer {
-    display: flex;
-    flex-direction: column; 
-  }
-  
-  .experienceList {
-    display: none; 
-  }
-  
-  .experiencesContent {
-    flex: 1;
-  }
-  
-  .experienceItem {
-    margin-bottom: 2rem; 
-    border-bottom: 1px solid #ccc; 
-    padding-bottom: 1rem;
-    display: flex; 
-  }
-  
-  .companyAndDetails {
-    display: flex;
-    flex-direction: column; 
-    margin-right: 2rem; 
-  }
-  
-  .companyAndPeriod {
-    display: flex;
-    justify-content: space-between; 
-    align-items: baseline; 
-    margin-bottom: 0.5rem; 
-  }
-  
-  .companyName {
-    font-weight: bold;
-    font-size: 1.5rem; 
-  }
-  
-  .jobTitle {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .period {
-    font-style: italic;
-    color: #888; 
-  }
-  
-  .description {
-    line-height: 1.5;
-    flex: 1;
-  }
+  display: flex;
+  gap: 2rem;
+  background-color: #0B0B0B;
+  color: #FFF;
+  padding: 2rem;
+}
+
+.experienceList {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+.experienceItem {
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #BF91F9;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.experienceItem:hover,
+.experienceItem.active {
+  color: #cca5e2;
+}
+
+.experienceDetails {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.companyName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #BF91F9;
+}
+
+.period {
+  font-style: italic;
+  color: #888888;
+}
+
+.jobTitle {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  color: #FFFFFF;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #CCCCCC;
+}
