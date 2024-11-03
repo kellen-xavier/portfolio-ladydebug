@@ -1,10 +1,7 @@
-// experiences.tsx
-
-"use client"; // Adicione esta linha
+"use client";
 
 import { useState } from 'react';
 import styles from './styles/Experience.module.css';
-
 interface Experience {
   company: string;
   jobTitle: string;
