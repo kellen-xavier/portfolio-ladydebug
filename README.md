@@ -1,33 +1,35 @@
-# Meu Portfolio
+# 📚 Portfolio | Sobre
 
-Este é o meu portfólio pessoal, desenvolvido com Next.js, onde apresento minhas habilidades, experiências profissionais e projetos.
+>Meu "blog" é o espaço onde documento meus aprendizados e desafios, servindo como uma "Carteira de Conhecimentos". Assim como no livro Programador Pragmático, vejo meus estudos como um investimento contínuo no meu crescimento pessoal e profissional. A ideia é simples: investir regularmente em novos conhecimentos, diversificar minhas habilidades e gerenciar os riscos de focar em tecnologias que podem se tornar obsoletas. Resumindo, seria escrever e praticar de forma que eu consiga estudar.
 
-## Link do projeto
+[Conheça sobre o livro aqui: O Programador Pragmático: De Aprendiz a Mestre](https://a.co/d/bXBwjQP)
 
-[Segue aqui o link :)](https://portfolio-ladydebug.vercel.app/)
+[Ou aqui 👀](https://github.com/CodesdaLu/Programming-Books/blob/main/o-programador-pragmatico.pdf)
 
-![alt text](image.png)
+## 🔍 Link do projeto
 
-## Funcionalidades
+[Segue aqui o link do Deploy :)](https://portfolio-ladydebug.vercel.app/)
 
-Página principal: Apresenta uma breve introdução sobre mim, com links para meu LinkedIn e currículo.
+## 🗂️ Funcionalidades
 
-Seção "Sobre mim": Descreve minha formação, experiência profissional e interesses.
+**Página principal:** Apresenta uma breve introdução sobre mim, com links para meu LinkedIn e currículo.
 
-Seção "Experiências": Lista minhas experiências profissionais, incluindo empresa, cargo, período e descrição detalhada.
+**Seção "Sobre mim":** Descreve minha formação, experiência profissional e interesses.
 
-Seção "Projetos": Exibe meus projetos mais relevantes, com imagens, descrições, tecnologias utilizadas e links para acessar o projeto e o repositório.
+**Seção "Experiências":** Lista minhas experiências profissionais, incluindo empresa, cargo, período e descrição detalhada.
 
-Seção "Blog": Integração com um blog externo para exibir meus artigos e posts.
+**Seção "Projetos":** Exibe meus projetos mais relevantes, com imagens, descrições, tecnologias utilizadas e links para acessar o projeto e o repositório.
 
-## Tecnologias utilizadas
+**Seção "Blog":** Integração com um blog externo para exibir meus artigos e posts.
 
-Next.js: Framework React para desenvolvimento de aplicações web.
+## 🛠️ Tecnologias utilizadas
 
-React: Biblioteca JavaScript para construção de interfaces de usuário.
+[Next.js: Framework React para desenvolvimento de aplicações web.](https://nextjs.org/)
 
-TypeScript: Superset de JavaScript que adiciona tipagem estática.
+[Contentlayer - organize seu conteúdo em arquivos Markdown (ou MDX)](https://contentlayer.dev/docs/getting-started-cddd76b7)
 
-CSS Modules: Permite a criação de estilos CSS com escopo local para cada componente.
+[Tailwind CSS (opcional): Framework CSS utilitário para estilização rápida e responsiva.](https://tailwindcss.com/)
 
-Tailwind CSS (opcional): Framework CSS utilitário para estilização rápida e responsiva.
+[Upstash - Serverlees Data](https://upstash.com/)
+
+[Deploy no Vercel App](https://vercel.com/)
