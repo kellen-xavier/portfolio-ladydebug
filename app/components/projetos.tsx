@@ -29,7 +29,6 @@ export function Projects({ projects }: Readonly<ProjectsProps>) {
     <div className={styles.projectsContainer}>
       {projects.slice(0, 4).map((project) => (
         <div key={project.name} className={styles.projectCard}>
-          <img src={project.image} alt={`Imagem do projeto ${project.name}`} className={styles.projectImage} />
           <h3 className={styles.projectName}>{project.name}</h3>
           <p className={styles.projectDescription}>{project.description}</p>
           <div className={styles.technologies}>

@@ -28,6 +28,12 @@ export default function Page() {
           Estou trabalhando como Quality Assurance Engineer e atualmente compartilho 
           meus estudos e trabalhos na área de tecnologia. 👩🏼‍💻📚💜`}
         </p>
+
+        <div className="redes-sociais">
+          <Link 
+            href="#">
+          </Link>
+        </div>
         
         <div>
           <Link 
