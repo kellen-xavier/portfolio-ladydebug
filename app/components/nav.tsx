@@ -5,13 +5,13 @@ const navItems = {
   '/': {
     name: 'Início',
   },
-  '#Sobre': {
+  '#sobre': {
     name: 'Sobre mim',
   },
-  '#Experiencia': {
+  '#experiencia': {
     name: 'Experiências',
   },
-  '/projetos': {
+  '#projetos': {
     name: 'Projetos',
   },
 
@@ -29,7 +29,7 @@ export function Navbar() {
     <aside className="-ml-[8px] mb-16 tracking-tight">
       <div className="lg:sticky lg:top-20">
         <nav className={`${styles.navContainer}  
- flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative`} id="nav">
+          flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative`} id="nav">
           <div className="flex flex-row">  
 
             <div className="flex">
