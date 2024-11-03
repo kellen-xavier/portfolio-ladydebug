@@ -8,6 +8,16 @@
   justify-content: center;
 }
 
+.pageIntroducao {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  color: #BF91F9;
+}
+
 .main {
   position: relative;
   background-color: #0B0B0B;
@@ -21,54 +31,96 @@
 }
 
 .sobreIntro {
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-size: 24px;
   font-weight: 500;
-  line-height: 29.05px;
+  line-height: 2.3;
   text-align: left;
+  color: #FFFFFF;
+}
+
+.sobreContainer {
+  margin-top: 4rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  color: #f0f0f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .pageContainer {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 2rem;
 }
 
 .linkedinButton {
-    background: #BF91F9;
-    color: #0B0B0B;
-    font-weight: bold;
-    width: 145px;
-    height: 39px;
-    margin-top: 424px;
-    left: 352px;
-    padding: 10px 40px 10px 40px;
-    border-radius: 4px 0px 0px 0px;    
-  }
+  background-color: #BF91F9;
+  color: #0B0B0B;
+  font-weight: bold;
+  padding: 10px 30px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  margin-top: 20px;
+}
   
   .linkedinButton:hover {
     background-color: #cca5e2;
-    opacity: 1;
+    transform: scale(1.05);
 }
 
-.baixarCV {
-  color: #BF91F9;
+.curriculoButton {
+  background-color: #BF91F9;
+  color: #0B0B0B;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.curriculoButton:hover {
+  background-color: #cca5e2;
 }
 
 .nomePrincipal {
-  font-family: Preahvihear;
-  font-size: 48px;
-  font-weight: 400;
-  line-height: 86.72px;
+  font-family: 'Preahvihear', sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.2;
   text-align: left;
   color: #BF91F9;
+  margin: 0;
 }
 
 .nomeSecundario {
-  font-family: Preahvihear;
+  font-family: 'Preahvihear', sans-serif;
   font-size: 32px;
-  font-weight: 400;
-  line-height: 57.81px;
-  text-align: left;
   color: #BF91F9;
+  margin-top: 20rem;
+  padding-bottom: 2.5rem;
+}
+
+.sobreMim {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1rem;
+  line-height: 2.1;
+  margin-bottom: 1rem;
+  color: #c0c0c0;
+}
+
+@media (max-width: 768px) {
+  .pageIntroducao {
+    align-items: center;
+    text-align: center;
+  }
+
+  .nomePrincipal {
+    font-size: 40px;
+  }
+
+  .linkedinButton {
+    width: auto;
+  }
 }
